@@ -99,6 +99,16 @@ function writeMarkdown(markdown, fn) {
     }, 7)
 }
 
+function creatPaper(fn) {
+    var paper = document.createElement('div')
+    paper.id = 'paper'
+    document.body.appendChild(paper)
+    var content = document.createElement('pre')
+    content.className = 'content'
+    paper.appendChild(content)
+    fn.call()
+}
+
 writeCode('', result, () => {
     creatPaper(() => {
         writeCode(result, result2, () => {
@@ -109,13 +119,4 @@ writeCode('', result, () => {
 
 
 
-function creatPaper(fn) {
-    var paper = document.createElement('div')
-    paper.id = 'paper'
-    document.body.appendChild(paper)
-    var content = document.createElement('pre')
-    content.className = 'content'
-    paper.appendChild(content)
-    fn.call()
-}
 
